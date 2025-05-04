@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class BallControll : MonoBehaviour
 {
-    [Header("Ball1 Settings")]
-    [Range(0.1f, 10f)]
+    [Header("Ball1 Settings_0")]
     public float speed = 10f;
-    [Header("Ball2 Settings")]
-    [Range(0.1f, 10f)]
+    [Header("Ball Settings_1")]
     public float force = 10f;
 
     Rigidbody rb;
@@ -21,11 +19,23 @@ public class BallControll : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            rb.linearVelocity = Vector3.left * speed;
+            rb.AddForce(Vector3.left * force);
         }
         if (Input.GetKey(KeyCode.D))
         {
             rb.AddForce(Vector3.right * force);
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            rb.AddForce(Vector3.forward * force);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            rb.AddForce(Vector3.back * force);
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            rb.AddForce(Vector3.up * 20);
         }
     }
 }
